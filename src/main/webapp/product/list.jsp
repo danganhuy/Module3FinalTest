@@ -43,11 +43,11 @@
     </div>
     <div>
         <label for="topProducts">Xem top sản phẩm bán chạy:</label>
-        <select id="topProducts" onchange="handleSelectTopProduct()">
+        <select id="topProducts" name="top" onchange="handleSelectTopProduct()">
             <option value="">-- Chọn --</option>
-            <option value="top10">Top 10</option>
-            <option value="top20">Top 20</option>
-            <option value="top50">Top 50</option>
+            <option value="3">Top 3</option>
+            <option value="5">Top 5</option>
+            <option value="10">Top 10</option>
         </select>
     </div>
 
@@ -78,17 +78,19 @@
 
     <script>
         function handleAddProduct() {
-            // Xử lý khi người dùng nhấn nút "Thêm sản phẩm"
-            alert('Chức năng thêm sản phẩm chưa được triển khai.');
+            window.location.href = "product?action=add"
         }
 
         function handleSelectTopProduct() {
             const select = document.getElementById('topProducts');
             const value = select.value;
-            if(value) {
-                alert('Hiển thị ' + value + ' sản phẩm bán chạy. (Chức năng chưa triển khai)');
-            }
+            if (value === "")
+                window.location.href = "product"
+
+            window.location.href = "product?action=top&top=" + value;
         }
+        document.getElementById('topProducts').value = ${top};
+
     </script>
 
 </body>
